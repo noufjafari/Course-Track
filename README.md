@@ -8,8 +8,9 @@
 - tailwind  
 
 ### Website Developer: 
-- Nouf Jafari
-- Fahad Alghamdi
+- <a href="https://github.com/noufjafari">Nouf Jafari</a>
+- <a href="https://github.com/fahadssgg">Fahad Alghamdi</a> <br/>                                       
+
   
 ### Link of website:
 https://fahad-nouf-hw.netlify.app/
