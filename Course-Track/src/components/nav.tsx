@@ -1,9 +1,29 @@
 import logo from "../assets/logo.png";
+import Swal from "sweetalert2";
+import { useNavigate } from "react-router-dom";
 
 interface NavparProps {
   Logein: boolean;
+
 }
 export default function Nav(prop: NavparProps) {
+  const Neveg = useNavigate();
+
+  const logout =() =>{
+    Swal.fire({
+      title: "Are you sure you want to Logout?",
+      showCancelButton: true,
+      confirmButtonColor: "#e34237",
+      cancelButtonColor: "#08AFB7",
+      confirmButtonText: " Yes",
+      cancelButtonText: "No",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        Neveg("/");
+
+      }
+    });
+  }
   return (
     <div>
       <div className="relative shadow">
@@ -17,12 +37,13 @@ export default function Nav(prop: NavparProps) {
               {prop.Logein ? (
                 <>
                   <li>
-                    <a
-                      href="/"
+                    <button
+                     onClick={logout}
+
                       className="text-red-600 transition duration-150 ease-in-out hover:text-gray-300   "
                     >
                       LogOut
-                    </a>
+                    </button>
                   </li>
                 </>
               ) : (

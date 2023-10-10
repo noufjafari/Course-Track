@@ -2,6 +2,7 @@ import React from "react";
 import delImag from "../assets/bin.png";
 import UpdatImag from "../assets/refresh.png";
 import axios from "axios";
+import Swal from "sweetalert2";
 
 type Coursinfo = {
   Coursname: string;
@@ -41,6 +42,16 @@ export default function AdminPage() {
   }, [PostCours]);
 
   const deleteID = (id: string) => {
+
+    Swal.fire({
+      title: "Are you sure you want to delete a Course?",
+      showCancelButton: true,
+      confirmButtonColor: "#e34237",
+      cancelButtonColor: "#08AFB7",
+      confirmButtonText: " Yes",
+      cancelButtonText: "No",
+    }).then((result) => {
+      if (result.isConfirmed) {
     axios
       .delete(`https://64e1142f50713530432cee2a.mockapi.io/courses/${id}`)
       .then((res) => {
@@ -48,10 +59,16 @@ export default function AdminPage() {
         setGetCours(
           GetCours.filter((item) => {
             return item.id !== id;
+            
           })
         );
       });
     console.log(id);
+    
+
+  }
+});
+
   };
   return (
     <div>

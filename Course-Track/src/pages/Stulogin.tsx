@@ -2,6 +2,7 @@ import React from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import logo from "../assets/logo.png";
+import Swal from "sweetalert2";
 
 export default function Stulogin() {
   const [username, setUsername] = React.useState("");
@@ -22,6 +23,11 @@ export default function Stulogin() {
 
       if (admin) {
         setLoggedIn(true);
+        Swal.fire(
+          '',
+          'Login successful!',
+          'success'
+        )
         navg("/CoursPage");
       } else {
         axios
@@ -34,9 +40,18 @@ export default function Stulogin() {
 
             if (student) {
               setLoggedIn(true);
-              navg("/CoursPage/stud");
+              Swal.fire(
+                '',
+                'Login successful!',
+                'success'
+              )
+             navg("/CoursPage/stud");
             } else {
-              alert("Invalid credentials");
+              Swal.fire(
+                '',
+                ' Invalid something is wrong',
+                'error'
+              )
             }
           });
       }
@@ -47,13 +62,13 @@ export default function Stulogin() {
     <div>
       <div className="min-h-screen flex justify-center items-center">
         <div className=" bg-gray-200 w-1/3 max-sm:w-3/4 flex flex-col justify-center items-center rounded-lg ">
-          <div className="sm:mx-auto sm:w-full sm:max-w-sm mt-20">
-            <img className="mx-auto h-9 w-auto " src={logo} alt="logo" />
-            <h2 className="mt-8 text-center text-3xl font-bold leading-9 tracking-tight text-gray-900">
+          <div className="sm:mx-auto mt-20">
+            <img className="mx-auto h-9 w-auto max-sm:w-24 max-sm:h-6" src={logo} alt="logo" />
+            <h2 className="mt-8 text-center text-3xl max-sm:text-lg font-bold leading-9 tracking-tight text-gray-900">
               Log in to your account
             </h2>
           </div>
-          <div className="text-left w-80 mt-5 ">
+          <div className="text-left w-80 mt-5 max-sm:w-44">
             <label
               htmlFor="email"
               className=" mt-10 block text-sm mb-5 font-medium leading-6 text-gray-900"
@@ -69,7 +84,7 @@ export default function Stulogin() {
             />
           </div>
 
-          <div className="text-left w-80">
+          <div className="text-left w-80 max-sm:w-44">
             <label
               htmlFor="password"
               className="block mt-5 mb-5 text-sm font-medium leading-6 text-gray-900"
@@ -87,20 +102,20 @@ export default function Stulogin() {
 
           <br />
           <button
-            className="bg-[#08AFB7] flex w-60 mt-8 mb-2  justify-center rounded-md  px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-teal-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-teal-600"
+            className="bg-[#08AFB7] flex w-60 max-sm:w-24 mt-8 mb-2  justify-center rounded-md  px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-teal-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-teal-600"
             onClick={handleLogin}
           >
             Log in
           </button>
-
-          <p className="m-5 mb-20 text-center ">
+         
+          <p className="m-5 mb-20 max-sm:text-xs text-center ">
             Dont have an account?
             <a
-              className="text-lg text-zinc-400  hover:text-teal-500"
+              className="text-lg max-sm:text-sm text-zinc-400  hover:text-teal-500"
               href="/singup"
             >
               {" "}
-              Sing up{" "}
+              sign up{" "}
             </a>
           </p>
         </div>
