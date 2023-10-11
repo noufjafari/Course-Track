@@ -1,5 +1,6 @@
 # Course-Track
 ### What is this website about?
+Course Track is a dashboard website where students and teachers to add a view their courses.
 
 ### Tools:
 - React
@@ -13,7 +14,7 @@
 
   
 ### Link of website:
-https://fahad-nouf-hw.netlify.app/
+https://course-track.netlify.app/
 
 ### Image of website:
 ![image](https://github.com/noufjafari/Course-Track/assets/140402511/f71fab67-041a-4435-97e8-9fc1034c8933)
