@@ -24,7 +24,7 @@ export default function Update() {
 
   const edite = () => {
     Swal.fire({
-      title: "Are you sure you want to delete a Course?",
+      title: "Are you sure you want to update this Course?",
       showCancelButton: true,
       confirmButtonColor: "#e34237",
       cancelButtonColor: "#08AFB7",
